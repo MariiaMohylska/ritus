@@ -108,7 +108,7 @@ Ritus is an mobile application designed to help  build and track        positive
 
 ## Wireframes
 
-![EPSON219_page-0001-min](https://hackmd.io/_uploads/B14t9usl0.jpg)
+![EPSON219_page-0001](https://github.com/MariiaMohylska/ritus/assets/55410334/bf59f332-f789-46fb-9e32-5348d47b9f37)
 
 
 ## Schema 
