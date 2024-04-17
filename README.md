@@ -111,6 +111,10 @@ Ritus is an mobile application designed to help  build and track        positive
 ![EPSON219_page-0001](https://github.com/MariiaMohylska/ritus/assets/55410334/bf59f332-f789-46fb-9e32-5348d47b9f37)
 
 
+## Video Walkthrough
+
+[Main Navigtion Schema](https://youtube.com/shorts/eRYMXD7fWJI)
+
 ## Schema 
 
 [This section will be completed in Unit 9]
