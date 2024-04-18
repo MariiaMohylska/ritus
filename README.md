@@ -41,6 +41,7 @@ Ritus is an mobile application designed to help  build and track        positive
 
 **Required Must-have Stories**
 
+- [X] User can navigate between different screen by bottom navigation bar
 - [ ] User can add tracker for new habbit with name and description
 - [ ] User can specify frequency of execution
 - [ ] User can check completion within current day
@@ -111,8 +112,9 @@ Ritus is an mobile application designed to help  build and track        positive
 ![EPSON219_page-0001](https://github.com/MariiaMohylska/ritus/assets/55410334/bf59f332-f789-46fb-9e32-5348d47b9f37)
 
 
-## Video Walkthrough
+## Progress
 
+Navigation between different screen via bottom navigation bar 
 [Main Navigtion Schema](https://youtube.com/shorts/eRYMXD7fWJI)
 
 ## Schema 
