@@ -17,6 +17,8 @@
 		559E207B2BCF5A7400B6878B /* TrackersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559E207A2BCF5A7400B6878B /* TrackersListViewController.swift */; };
 		559E207D2BCF5D3300B6878B /* TackerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559E207C2BCF5D3300B6878B /* TackerDetailsViewController.swift */; };
 		559E207F2BCF622800B6878B /* NewTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559E207E2BCF622800B6878B /* NewTrackerViewController.swift */; };
+		55AF340D2BD09C5D00B523EC /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF340C2BD09C5D00B523EC /* Habit.swift */; };
+		55AF34132BD0ADD700B523EC /* Frequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF34122BD0ADD700B523EC /* Frequency.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		559E207A2BCF5A7400B6878B /* TrackersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackersListViewController.swift; sourceTree = "<group>"; };
 		559E207C2BCF5D3300B6878B /* TackerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TackerDetailsViewController.swift; sourceTree = "<group>"; };
 		559E207E2BCF622800B6878B /* NewTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrackerViewController.swift; sourceTree = "<group>"; };
+		55AF340C2BD09C5D00B523EC /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
+		55AF34122BD0ADD700B523EC /* Frequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frequency.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,8 @@
 				557781AE2BCE2FD6009CF9D6 /* SceneDelegate.swift */,
 				557781B02BCE2FD6009CF9D6 /* ViewController.swift */,
 				557781B22BCE2FD6009CF9D6 /* Main.storyboard */,
+				55AF340C2BD09C5D00B523EC /* Habit.swift */,
+				55AF34122BD0ADD700B523EC /* Frequency.swift */,
 				558469192BD0889D00DD0CA2 /* AwardsViewController.swift */,
 				559E207E2BCF622800B6878B /* NewTrackerViewController.swift */,
 				559E207C2BCF5D3300B6878B /* TackerDetailsViewController.swift */,
@@ -154,6 +160,8 @@
 				5584691A2BD0889D00DD0CA2 /* AwardsViewController.swift in Sources */,
 				557781B12BCE2FD6009CF9D6 /* ViewController.swift in Sources */,
 				557781AD2BCE2FD6009CF9D6 /* AppDelegate.swift in Sources */,
+				55AF340D2BD09C5D00B523EC /* Habit.swift in Sources */,
+				55AF34132BD0ADD700B523EC /* Frequency.swift in Sources */,
 				559E207B2BCF5A7400B6878B /* TrackersListViewController.swift in Sources */,
 				559E207F2BCF622800B6878B /* NewTrackerViewController.swift in Sources */,
 				557781AF2BCE2FD6009CF9D6 /* SceneDelegate.swift in Sources */,
@@ -308,6 +316,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L52LU348PF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ritus/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -335,6 +344,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L52LU348PF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ritus/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
