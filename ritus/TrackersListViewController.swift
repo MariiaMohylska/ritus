@@ -18,8 +18,6 @@ class TrackersListViewController: UIViewController {
         
         habitsTableView.tableHeaderView =  UIView()
         habitsTableView.dataSource = self
-        //        tableView.delegate = self
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -33,8 +31,6 @@ class TrackersListViewController: UIViewController {
         self.habits = habits
         
         //Add empy label logic
-        
-        //Check if it is needed to be tableView.reloadSelection and why
         habitsTableView.reloadData()
     }
     

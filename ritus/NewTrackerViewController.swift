@@ -49,7 +49,13 @@ class NewTrackerViewController: UIViewController {
     func frequency() -> [Frequency] {
         var frequencies: [Frequency] = []
         if everydayIsChecked{
-            frequencies.append(Frequency.everyday)
+//            frequencies.append(Frequency.everyMonday)
+//            frequencies.append(Frequency.everyTuesday)
+//            frequencies.append(Frequency.everyWednesday)
+//            frequencies.append(Frequency.everyThursday)
+//            frequencies.append(Frequency.everyFriday)
+//            frequencies.append(Frequency.everySunday)
+//            frequencies.append(Frequency.everySaturday)
         } else {
             if mondayIsChecked {
                 frequencies.append(Frequency.everyMonday)

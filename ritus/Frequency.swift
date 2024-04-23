@@ -7,13 +7,12 @@
 
 import Foundation
 
-enum Frequency: Codable {
-    case everyday
+enum Frequency: Int, Codable {
+    case everySunday = 1
     case everyMonday
     case everyTuesday
     case everyWednesday
     case everyThursday
     case everyFriday
     case everySaturday
-    case everySunday
 }

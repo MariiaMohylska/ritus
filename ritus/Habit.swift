@@ -7,12 +7,16 @@
 
 import UIKit
 
+enum Weekday: Int {
+    case sunday = 1, monday, tuesday, wednesday, thursday, friday, saturday
+}
+
 class Habit : Codable {
     let id: String
     let name: String
     let description: String
     let frequency: [Frequency]
-    var toDoDates: [Date: Bool]
+    var toDoDates: [Date: Bool] = [: ]
     var progress: Double {
         return 0
     }
@@ -28,13 +32,46 @@ class Habit : Codable {
         self.frequency = frequency
         self.toDoDates = toDoDates ?? [: ];
         initDates()
-        print("New habit was screated with this information: name -> \(name)   description -> \(description)   frequency -> \(frequency)")
     }
     
     func initDates(){
-        if toDoDates.isEmpty && !frequency.isEmpty{}
-        toDoDates = [: ]
-        // Create map of days when is needed to do habit within 1 month
+        let currentDate = Date()
+
+        // Get the current calendar
+        let calendar = Calendar.current
+
+        // Get the current month and year components
+        let currentMonth = calendar.component(.month, from: currentDate)
+        let currentYear = calendar.component(.year, from: currentDate)
+
+        // Get the start date of the current month
+        guard let startDate = calendar.date(from: DateComponents(year: currentYear, month: currentMonth, day: 1)) else {
+            fatalError("Failed to get the start date of the current month")
+        }
+
+        // Get the range of days in the current month
+        guard let range = calendar.range(of: .day, in: .month, for: startDate) else {
+            fatalError("Failed to get the range of days in the current month")
+        }
+
+        // Iterate through all the days of the current month
+        var mondays: [Date] = []
+        for day in 1...range.upperBound {
+            // Construct the date for the current day
+            guard let date = calendar.date(from: DateComponents(year: currentYear, month: currentMonth, day: day)) else {
+                fatalError("Failed to construct the date for day \(day)")
+            }
+            
+            guard let weekday = Frequency(rawValue:  calendar.component(.weekday, from: date)) else { return }
+            // Check if the current day is a Monday (weekday number 2)
+            if self.frequency.contains(weekday) {
+                mondays.append(date)
+            }
+        }
+        
+        for day in mondays {
+            self.toDoDates[day] = false
+        }
     }
     
     required init(from decoder: Decoder) throws {
@@ -104,6 +141,12 @@ extension Habit {
         } else {
             habits.append(self)
         }
+        Habit.save(habits)
+    }
+    
+    func delete() {
+        var habits = Habit.getHabits()
+        habits.removeAll(where: {habit in return self.id == habit.id})
         Habit.save(habits)
     }
 }

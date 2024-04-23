@@ -111,7 +111,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8lg-CC-5iE">
-                                <rect key="frame" x="16" y="164" width="361" height="80"/>
+                                <rect key="frame" x="16" y="156" width="361" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="PvB-kz-lje"/>
                                 </constraints>
@@ -120,65 +120,55 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YG2-8d-LnL">
-                                <rect key="frame" x="16.000000000000004" y="260" width="43.333333333333343" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESM-3B-oH8">
-                                <rect key="frame" x="172" y="296" width="49" height="21"/>
+                                <rect key="frame" x="16.000000000000004" y="252" width="43.333333333333343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GoT-1g-YqK">
-                                <rect key="frame" x="75.333333333333343" y="268" width="301.66666666666663" height="4"/>
+                                <rect key="frame" x="75.333333333333343" y="260" width="301.66666666666663" height="4"/>
                             </progressView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWi-dc-W8i" userLabel="Calendar View">
-                                <rect key="frame" x="0.0" y="333" width="393" height="320"/>
-                                <color key="backgroundColor" systemColor="systemGray4Color"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="320" id="ycW-fF-T7V"/>
-                                </constraints>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1U-PD-wRC">
+                                <rect key="frame" x="0.0" y="297" width="393" height="448"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9So-qK-aBi">
-                                <rect key="frame" x="138.66666666666666" y="701" width="116" height="35"/>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6G7-wn-AQf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YG2-8d-LnL" firstAttribute="top" secondItem="8lg-CC-5iE" secondAttribute="bottom" constant="16" id="1i3-jf-WWt"/>
+                            <constraint firstItem="8lg-CC-5iE" firstAttribute="top" secondItem="v19-I0-IGg" secondAttribute="bottom" constant="8" id="FG6-PT-33s"/>
+                            <constraint firstItem="v19-I0-IGg" firstAttribute="leading" secondItem="6G7-wn-AQf" secondAttribute="leading" constant="16" id="GjP-9w-acd"/>
+                            <constraint firstItem="e1U-PD-wRC" firstAttribute="top" secondItem="YG2-8d-LnL" secondAttribute="bottom" constant="24" id="IEg-Iq-VXm"/>
+                            <constraint firstItem="GoT-1g-YqK" firstAttribute="top" secondItem="8lg-CC-5iE" secondAttribute="bottom" constant="24" id="Ico-I3-Icp"/>
+                            <constraint firstItem="e1U-PD-wRC" firstAttribute="leading" secondItem="6G7-wn-AQf" secondAttribute="leading" id="O4i-fB-vzo"/>
+                            <constraint firstItem="6G7-wn-AQf" firstAttribute="trailing" secondItem="8lg-CC-5iE" secondAttribute="trailing" constant="16" id="OMn-yX-Cx9"/>
+                            <constraint firstItem="GoT-1g-YqK" firstAttribute="leading" secondItem="YG2-8d-LnL" secondAttribute="trailing" constant="16" id="QeB-Vd-09Y"/>
+                            <constraint firstItem="e1U-PD-wRC" firstAttribute="trailing" secondItem="6G7-wn-AQf" secondAttribute="trailing" id="ZSP-B6-Z0p"/>
+                            <constraint firstItem="6G7-wn-AQf" firstAttribute="bottom" secondItem="e1U-PD-wRC" secondAttribute="bottom" constant="24" id="iOp-QS-KMV"/>
+                            <constraint firstItem="6G7-wn-AQf" firstAttribute="trailing" secondItem="GoT-1g-YqK" secondAttribute="trailing" constant="16" id="mFd-Yv-ik1"/>
+                            <constraint firstItem="8lg-CC-5iE" firstAttribute="leading" secondItem="6G7-wn-AQf" secondAttribute="leading" constant="16" id="qHf-68-acQ"/>
+                            <constraint firstItem="YG2-8d-LnL" firstAttribute="leading" secondItem="6G7-wn-AQf" secondAttribute="leading" constant="16" id="qLn-F3-P8P"/>
+                            <constraint firstItem="6G7-wn-AQf" firstAttribute="trailing" secondItem="v19-I0-IGg" secondAttribute="trailing" constant="16" id="vWK-4p-1hZ"/>
+                            <constraint firstItem="v19-I0-IGg" firstAttribute="top" secondItem="6G7-wn-AQf" secondAttribute="top" constant="24" id="zfj-04-duP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gIK-7E-odk">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="gXE-YG-cOO">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="9So-qK-aBi">
+                                <rect key="frame" x="261" y="4.6666666666666679" width="116" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Delete habit"/>
                                 <connections>
                                     <action selector="deleteTracker:" destination="Rnt-Rd-gaM" eventType="touchUpInside" id="g4c-Km-Sqk"/>
                                 </connections>
                             </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6G7-wn-AQf"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="YG2-8d-LnL" firstAttribute="top" secondItem="8lg-CC-5iE" secondAttribute="bottom" constant="16" id="1i3-jf-WWt"/>
-                            <constraint firstItem="9So-qK-aBi" firstAttribute="top" secondItem="RWi-dc-W8i" secondAttribute="bottom" constant="48" id="3UV-iN-gtl"/>
-                            <constraint firstItem="RWi-dc-W8i" firstAttribute="centerX" secondItem="oGl-zM-ak8" secondAttribute="centerX" id="7uc-bz-MFf"/>
-                            <constraint firstItem="ESM-3B-oH8" firstAttribute="centerX" secondItem="oGl-zM-ak8" secondAttribute="centerX" id="Dh3-u0-Cnj"/>
-                            <constraint firstItem="v19-I0-IGg" firstAttribute="leading" secondItem="6G7-wn-AQf" secondAttribute="leading" constant="16" id="GjP-9w-acd"/>
-                            <constraint firstItem="GoT-1g-YqK" firstAttribute="top" secondItem="8lg-CC-5iE" secondAttribute="bottom" constant="24" id="Ico-I3-Icp"/>
-                            <constraint firstItem="ESM-3B-oH8" firstAttribute="top" secondItem="GoT-1g-YqK" secondAttribute="bottom" constant="24" id="MTN-6K-iFI"/>
-                            <constraint firstItem="6G7-wn-AQf" firstAttribute="trailing" secondItem="8lg-CC-5iE" secondAttribute="trailing" constant="16" id="OMn-yX-Cx9"/>
-                            <constraint firstItem="GoT-1g-YqK" firstAttribute="leading" secondItem="YG2-8d-LnL" secondAttribute="trailing" constant="16" id="QeB-Vd-09Y"/>
-                            <constraint firstItem="8lg-CC-5iE" firstAttribute="top" secondItem="v19-I0-IGg" secondAttribute="bottom" constant="16" id="SVJ-tU-bW4"/>
-                            <constraint firstItem="RWi-dc-W8i" firstAttribute="leading" secondItem="6G7-wn-AQf" secondAttribute="leading" id="SrW-aM-tLb"/>
-                            <constraint firstItem="RWi-dc-W8i" firstAttribute="trailing" secondItem="6G7-wn-AQf" secondAttribute="trailing" id="jMA-mL-nzf"/>
-                            <constraint firstItem="6G7-wn-AQf" firstAttribute="trailing" secondItem="GoT-1g-YqK" secondAttribute="trailing" constant="16" id="mFd-Yv-ik1"/>
-                            <constraint firstItem="RWi-dc-W8i" firstAttribute="top" secondItem="ESM-3B-oH8" secondAttribute="bottom" constant="16" id="po3-QU-BiI"/>
-                            <constraint firstItem="8lg-CC-5iE" firstAttribute="leading" secondItem="6G7-wn-AQf" secondAttribute="leading" constant="16" id="qHf-68-acQ"/>
-                            <constraint firstItem="YG2-8d-LnL" firstAttribute="leading" secondItem="6G7-wn-AQf" secondAttribute="leading" constant="16" id="qLn-F3-P8P"/>
-                            <constraint firstItem="9So-qK-aBi" firstAttribute="centerX" secondItem="oGl-zM-ak8" secondAttribute="centerX" id="rFK-fi-wN9"/>
-                            <constraint firstItem="6G7-wn-AQf" firstAttribute="trailing" secondItem="v19-I0-IGg" secondAttribute="trailing" constant="16" id="vWK-4p-1hZ"/>
-                            <constraint firstItem="v19-I0-IGg" firstAttribute="top" secondItem="6G7-wn-AQf" secondAttribute="top" constant="24" id="zfj-04-duP"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="gIK-7E-odk"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="calendarView" destination="RWi-dc-W8i" id="brY-pk-O9J"/>
+                        <outlet property="calendarContainerView" destination="e1U-PD-wRC" id="643-aE-3WX"/>
                         <outlet property="descriptionLabel" destination="8lg-CC-5iE" id="dEq-5R-qdm"/>
-                        <outlet property="monthLabel" destination="ESM-3B-oH8" id="PvZ-Rc-oS8"/>
                         <outlet property="nameLabel" destination="v19-I0-IGg" id="ff3-zM-Ej5"/>
                         <outlet property="progressBar" destination="GoT-1g-YqK" id="0cU-bU-Ylx"/>
                         <outlet property="progressPercentLabel" destination="YG2-8d-LnL" id="ed2-cc-h8x"/>
@@ -465,9 +455,6 @@
         <image name="trophy" catalog="system" width="128" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
