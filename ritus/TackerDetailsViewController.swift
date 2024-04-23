@@ -39,11 +39,8 @@ class TackerDetailsViewController: UIViewController, UITextViewDelegate, UICalen
         super.viewDidLoad()
         nameLabel.text = habit?.name
         descriptionLabel.text = habit?.description
-        let progress = habit?.progress ?? 0
-        progressPercentLabel.text = "\((progress * 100).rounded())%"
-        progressBar.progress = Float(progress)
         descriptionLabel.isEditable = false
-        
+        setProgress()
         self.calendarView = UICalendarView()
         calendarView.translatesAutoresizingMaskIntoConstraints = false
                 calendarContainerView.addSubview(calendarView)
@@ -87,6 +84,7 @@ class TackerDetailsViewController: UIViewController, UITextViewDelegate, UICalen
             habit?.toDoDates[selectedDay] = !(habit?.toDoDates[selectedDay] ?? true)
             let dateComponentsArray: [DateComponents] = [dateComponents]
             habit?.save()
+            setProgress()
             calendarView.reloadDecorations(forDateComponents: dateComponentsArray, animated: true)
         }
     }
@@ -99,8 +97,15 @@ class TackerDetailsViewController: UIViewController, UITextViewDelegate, UICalen
             habit?.toDoDates[selectedDay] = !(habit?.toDoDates[selectedDay] ?? false)
             let dateComponentsArray: [DateComponents] = [dateComponents]
             habit?.save()
+            setProgress()
             calendarView.reloadDecorations(forDateComponents: dateComponentsArray, animated: true)
         }
+    }
+    
+    private func setProgress(){
+        let progress = habit?.progress ?? 0
+        progressPercentLabel.text = "\((progress * 100).rounded())%"
+        progressBar.progress = Float(progress)
     }
 }
 

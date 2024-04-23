@@ -9,7 +9,9 @@ import UIKit
 
 class TrackersListViewController: UIViewController {
     
+    @IBOutlet weak var emptyListLabel: UILabel!
     @IBOutlet weak var habitsTableView: UITableView!
+    
     var habits = [Habit]()
     
     override func viewDidLoad() {
@@ -23,6 +25,13 @@ class TrackersListViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         refreshHabits()
+        if habits.isEmpty{
+            emptyListLabel.isHidden = false
+            habitsTableView.isHidden = true
+        } else {
+            emptyListLabel.isHidden = true
+            habitsTableView.isHidden = false
+        }
     }
     
     private func refreshHabits() {

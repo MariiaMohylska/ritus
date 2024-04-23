@@ -13,6 +13,7 @@
             <objects>
                 <navigationController title="Trackers Navigation" id="qwd-jT-Mmq" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Trackers" image="checklist" catalog="system" id="6vB-e9-qNP"/>
+                    <navigationItem key="navigationItem" id="Yb6-ay-1fb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2HC-DY-7Zq">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -82,11 +83,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There will be your habits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWG-Pv-SXW">
+                                <rect key="frame" x="51" y="409.33333333333331" width="291" height="33.666666666666686"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="fOl-od-vK3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UFF-ON-bcL"/>
+                            <constraint firstItem="rWG-Pv-SXW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="YHf-jr-d7O"/>
+                            <constraint firstItem="rWG-Pv-SXW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g9B-6G-Z3k"/>
                             <constraint firstItem="fOl-od-vK3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="i9a-Dv-f56"/>
                             <constraint firstAttribute="trailing" secondItem="fOl-od-vK3" secondAttribute="trailing" id="w5J-02-jF9"/>
                             <constraint firstItem="fOl-od-vK3" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="11" id="zHI-Kc-KDl" userLabel="Habits Table View.bottom = Safe Area.bottom + 24"/>
@@ -94,12 +103,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="6uc-6K-jq9"/>
                     <connections>
+                        <outlet property="emptyListLabel" destination="rWG-Pv-SXW" id="2JP-To-8Lp"/>
                         <outlet property="habitsTableView" destination="fOl-od-vK3" id="ApI-lR-XHM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="954.96183206106866" y="-509.15492957746483"/>
+            <point key="canvasLocation" x="893.89312977099235" y="-532.3943661971831"/>
         </scene>
         <!--Tacker Details View Controller-->
         <scene sceneID="Jh1-Ht-SMH">
@@ -182,7 +192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rwB-Vb-RhG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1759.5419847328244" y="-509.15492957746483"/>
+            <point key="canvasLocation" x="1752" y="-532"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="71R-3M-It6">
@@ -327,7 +337,6 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Add New Tracker"/>
                                 <connections>
                                     <action selector="addTrackerSubmit:" destination="CSD-no-edb" eventType="touchUpInside" id="n6A-N6-7hA"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="Vbt-FH-ziH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRY-M8-d8Z">
@@ -441,9 +450,6 @@
             <point key="canvasLocation" x="184" y="805"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Vbt-FH-ziH"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="checklist" catalog="system" width="128" height="107"/>
         <image name="plus.circle" catalog="system" width="128" height="123"/>

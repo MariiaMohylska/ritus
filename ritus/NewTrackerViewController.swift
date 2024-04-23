@@ -35,15 +35,58 @@ class NewTrackerViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTextView()
+        descriptionTextField.layer.borderColor = UIColor.systemGray6.cgColor
+        descriptionTextField.layer.borderWidth = 0.9
+        descriptionTextField.layer.cornerRadius = 5
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
     
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     @IBAction func addTrackerSubmit(_ sender: Any) {
-        let name = nameTextField.text ?? "New habit"
+        guard let name = nameTextField.text, !name.isEmpty else {
+                emptyName()
+                return
+            }
+        let frequency = frequency()
+        if frequency.isEmpty  {
+            emptyDays()
+            return
+        }
         let description = descriptionTextField.text != descriptionHintText ? descriptionTextField.text : ""
-        let habit = Habit(name: name, description: description ?? "", frequency: frequency(), toDoDates: nil)
+        let habit = Habit(name: name, description: description ?? "", frequency: frequency, toDoDates: nil)
         habit.save()
         resetScreen()
+        confirmCreating()
+    }
+    
+    private func confirmCreating() {
+        let alert = UIAlertController(title: "Congradulation!", message: "New habit was succesfully added. \n You can find it in 'Trackers' section", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+    
+    private func emptyName() {
+        let alert = UIAlertController(title: "Ooooops we have a problem", message: "Please, specify name of your habit", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(action)
+        present(alert, animated: true)
+    }
+    
+    private func emptyDays() {
+        let alert = UIAlertController(title: "Ooooops we have a problem", message: "Please, select days, when you want to perform your habit", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(action)
+        present(alert, animated: true)
     }
     
     private func frequency() -> [Frequency] {
@@ -122,6 +165,7 @@ class NewTrackerViewController: UIViewController, UITextViewDelegate {
     private func resetScreen() {
         nameTextField.text = ""
         descriptionTextField.text = ""
+        textViewDidEndEditing(descriptionTextField)
         mondayIsChecked = false
         mondayButton.backgroundColor = UIColor.quaternarySystemFill
         tuesdayIsChecked = false
