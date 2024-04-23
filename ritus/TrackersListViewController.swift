@@ -62,7 +62,7 @@ extension TrackersListViewController : UITableViewDataSource {
         let habit = habits[indexPath.row]
        
         cell.nameLabel.text = habit.name
-        cell.progressPercentLabel.text = "\(habit.progress)%"
+        cell.progressPercentLabel.text = "\((habit.progress * 100).rounded())%"
         cell.progressBar
             .progress = Float(habit.progress)
     

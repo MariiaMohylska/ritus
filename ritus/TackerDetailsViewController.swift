@@ -7,19 +7,8 @@
 
 import UIKit
 
-class TackerDetailsViewController: UIViewController, UICalendarSelectionSingleDateDelegate {
-    func dateSelection(_ selection: UICalendarSelectionSingleDate, didSelectDate dateComponents: DateComponents?) {
-        guard let selectedDay = dateComponents?.date else { return}
-        if !compareDateToCurrent(selectedDay: selectedDay) {return}
-        
-        if habit?.toDoDates[selectedDay] != nil{
-            habit?.toDoDates[selectedDay] = !(habit?.toDoDates[selectedDay] ?? true)
-            let dateComponentsArray: [DateComponents] = [dateComponents!]
-            habit?.save()
-            calendarView.reloadDecorations(forDateComponents: dateComponentsArray, animated: true)
-        }
-    }
-    
+class TackerDetailsViewController: UIViewController, UITextViewDelegate, UICalendarSelectionMultiDateDelegate {
+
     private func compareDateToCurrent(selectedDay: Date) -> Bool {
         let currentDay = Date()
 
@@ -35,9 +24,9 @@ class TackerDetailsViewController: UIViewController, UICalendarSelectionSingleDa
         }
     }
     
+    @IBOutlet weak var descriptionLabel: UITextView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var progressPercentLabel: UILabel!
+    @IBOutlet weak var progressPercentLabel: UITextView!
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var calendarContainerView: UIView!
     private var calendarView: UICalendarView!
@@ -50,9 +39,10 @@ class TackerDetailsViewController: UIViewController, UICalendarSelectionSingleDa
         super.viewDidLoad()
         nameLabel.text = habit?.name
         descriptionLabel.text = habit?.description
-        progressPercentLabel.text = "\(habit?.progress ?? 0)%"
-        progressBar.progress = Float(habit?.progress ?? 0)
-        
+        let progress = habit?.progress ?? 0
+        progressPercentLabel.text = "\((progress * 100).rounded())%"
+        progressBar.progress = Float(progress)
+        descriptionLabel.isEditable = false
         
         self.calendarView = UICalendarView()
         calendarView.translatesAutoresizingMaskIntoConstraints = false
@@ -66,10 +56,9 @@ class TackerDetailsViewController: UIViewController, UICalendarSelectionSingleDa
                 ])
         
         calendarView.delegate = self
-        
-        calendarView.selectionBehavior = UICalendarSelectionSingleDate(delegate: self)
+        calendarView.selectionBehavior = UICalendarSelectionMultiDate(delegate: self)
     }
-
+    
     @IBAction func deleteTracker(_ sender: Any) {
         let alert = UIAlertController(title: "Do you want to delete this habit?", message: "All progress related to this habit will be deleted", preferredStyle: .alert)
         
@@ -85,7 +74,33 @@ class TackerDetailsViewController: UIViewController, UICalendarSelectionSingleDa
         present(alert, animated: true)
     }
     
-    private func checkCompletion(selectedDay: Date){
+    func multiDateSelection(_ selection: UICalendarSelectionMultiDate, canSelectDate dateComponents: DateComponents) -> Bool {
+        guard let selectedDay = dateComponents.date else { return false}
+        return compareDateToCurrent(selectedDay: selectedDay)
+    }
+    
+    func multiDateSelection(_ selection: UICalendarSelectionMultiDate, didSelectDate dateComponents: DateComponents) {
+        guard let selectedDay = dateComponents.date else { return}
+        if !compareDateToCurrent(selectedDay: selectedDay) {return}
+        
+        if habit?.toDoDates[selectedDay] != nil{
+            habit?.toDoDates[selectedDay] = !(habit?.toDoDates[selectedDay] ?? true)
+            let dateComponentsArray: [DateComponents] = [dateComponents]
+            habit?.save()
+            calendarView.reloadDecorations(forDateComponents: dateComponentsArray, animated: true)
+        }
+    }
+    
+    func multiDateSelection(_ selection: UICalendarSelectionMultiDate, didDeselectDate dateComponents: DateComponents) {
+        guard let selectedDay = dateComponents.date else { return}
+        if !compareDateToCurrent(selectedDay: selectedDay) {return}
+        
+        if habit?.toDoDates[selectedDay] != nil{
+            habit?.toDoDates[selectedDay] = !(habit?.toDoDates[selectedDay] ?? false)
+            let dateComponentsArray: [DateComponents] = [dateComponents]
+            habit?.save()
+            calendarView.reloadDecorations(forDateComponents: dateComponentsArray, animated: true)
+        }
     }
 }
 

@@ -18,7 +18,8 @@ class Habit : Codable {
     let frequency: [Frequency]
     var toDoDates: [Date: Bool] = [: ]
     var progress: Double {
-        return 0
+        let count = countCompetedDays()
+        return count / Double(toDoDates.count)
     }
     
     enum CodingKeys: String, CodingKey{
@@ -110,6 +111,18 @@ class Habit : Codable {
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter
     }()
+    
+    private func countCompetedDays() -> Double {
+        var numberOfCompletedDay = 0.0
+        self.toDoDates.values.forEach{day in
+            if day {
+                numberOfCompletedDay+=1
+            }
+        }
+
+        return numberOfCompletedDay
+    }
+    
 }
 
 extension Habit {
