@@ -42,16 +42,16 @@ Ritus is an mobile application designed to help  build and track        positive
 **Required Must-have Stories**
 
 - [X] User can navigate between different screen by bottom navigation bar
-- [ ] User can add tracker for new habbit with name and description
-- [ ] User can specify frequency of execution
-- [ ] User can check completion within current day
-- [ ] User can see progress in percent
-- [ ] User can see list of trackers with name and progress
-- [ ] User can open specific tracker in separate screen
+- [X] User can add tracker for new habbit with name and description
+- [X] User can specify frequency of execution
+- [X] User can check completion within current day
+- [X] User can see progress in percent
+- [X] User can see list of trackers with name and progress
+- [X] User can open specific tracker in separate screen
 - [ ] User can receive awards for achivements
 - [ ] User can see list of awards with description
-- [ ] User can see habit details with cempleted days, name, description and progres
-- [ ] User can delete tracker
+- [X] User can see habit details with cempleted days, name, description and progres
+- [X] User can delete tracker
 
 
 **Optional Nice-to-have Stories**
@@ -59,9 +59,9 @@ Ritus is an mobile application designed to help  build and track        positive
 - [ ] User can receive reminder of habit
 - [ ] User can see trackers devided by time of day
 - [ ] User can see calender with whole list of habits for specific day
-- [ ] User can check habit inside calendar screen
+- [X] User can check habit inside calendar screen
 - [ ] User can see list of advise about habits
-- [ ] User can specify days for habit
+- [X] User can specify days for habit
 
 ### 2. Screen Archetypes
 
@@ -116,6 +116,9 @@ Ritus is an mobile application designed to help  build and track        positive
 
 Navigation between different screen via bottom navigation bar 
 [Main Navigtion Schema](https://youtube.com/shorts/eRYMXD7fWJI)
+
+Implemented basic function except Awards
+[Basic Features - module 9 homework](https://youtube.com/shorts/kyqrEh0xvn4)
 
 ## Schema 
 
