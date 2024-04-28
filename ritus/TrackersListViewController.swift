@@ -1,10 +1,3 @@
-//
-//  TrackersListViewController.swift
-//  ritus
-//
-//  Created by Mariia Mohylska on 4/16/24.
-//
-
 import UIKit
 
 class TrackersListViewController: UIViewController {
@@ -32,14 +25,47 @@ class TrackersListViewController: UIViewController {
             emptyListLabel.isHidden = true
             habitsTableView.isHidden = false
         }
+        
+        if shouldRunFunctionOnFirstLaunchOfDay() {
+                    UserDefaults.standard.set(Date(), forKey: "LastLaunchDate")
+            
+            print("NEW")
+            
+            AwardsService.fetchImage(){
+                images in
+                AwardsService.fetchInspirationQuotes(){
+                    quotes in
+                     let awardsList = AwardsCalculation.checkAwards(imagesForAward: images ?? [], inspirationsForAward: quotes)
+                    if !awardsList.isEmpty {
+                        self.showAwardsListAlert(list: awardsList)
+                    }
+                }
+            }
+        }
+    }
+    
+    private func shouldRunFunctionOnFirstLaunchOfDay() -> Bool {
+          let userDefaults = UserDefaults.standard
+          
+          if let lastLaunchDate = userDefaults.object(forKey: "LastLaunchDate") as? Date {
+              return !lastLaunchDate.compareDateToCurrent()
+          }
+          
+          return true
+      }
+      
+    
+    private func showAwardsListAlert(list: String) {
+        let alert = UIAlertController(title: "Congratulations!", message: "You gained new awards: \n \(list)", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(action)
+        present(alert, animated: true)
     }
     
     private func refreshHabits() {
         let habits = Habit.getHabits()
         
         self.habits = habits
-        
-        //Add empy label logic
         habitsTableView.reloadData()
     }
     
@@ -67,7 +93,6 @@ extension TrackersListViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = habitsTableView.dequeueReusableCell(withIdentifier: "HabitCell", for: indexPath) as! HabitCell
-        
         let habit = habits[indexPath.row]
        
         cell.nameLabel.text = habit.name

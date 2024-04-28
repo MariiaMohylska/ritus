@@ -17,21 +17,25 @@ class Habit : Codable {
     let description: String
     let frequency: [Frequency]
     var toDoDates: [Date: Bool] = [: ]
+    var awardList: [AwardsType]
+    var createdDate: Date
     var progress: Double {
         let count = countCompetedDays()
         return count / Double(toDoDates.count)
     }
     
     enum CodingKeys: String, CodingKey{
-        case id, name, description, frequency, toDoDates
+        case id, name, description, frequency, toDoDates, awardList, createdDate
     }
     
-    init(name: String, description: String, frequency: [Frequency], toDoDates: [Date: Bool]?) {
+    init(name: String, description: String, createdDate: Date = Date(), frequency: [Frequency], awardList: [AwardsType] = [], toDoDates: [Date: Bool]?) {
         self.id = UUID().uuidString
         self.name = name
         self.description = description
         self.frequency = frequency
+        self.awardList = awardList
         self.toDoDates = toDoDates ?? [: ];
+        self.createdDate = createdDate
         initDates()
     }
     
@@ -81,6 +85,8 @@ class Habit : Codable {
         name = try container.decode(String.self, forKey: .name)
         description = try container.decode(String.self, forKey: .description)
         frequency  = try container.decode([Frequency].self, forKey: .frequency)
+        awardList = try container.decode([AwardsType].self, forKey: .awardList)
+        createdDate = try container.decode(Date.self, forKey: .createdDate)
         
         let dateDict = try container.decode([String: Bool].self, forKey: .toDoDates)
         toDoDates = [: ]
@@ -97,6 +103,8 @@ class Habit : Codable {
         try container.encode(name, forKey: .name)
         try container.encode(description, forKey: .description)
         try container.encode(frequency, forKey: .frequency)
+        try container.encode(awardList, forKey: .awardList)
+        try container.encode(createdDate, forKey: .createdDate)
         
         var dateDict: [String: Bool] = [: ]
         for (date, value) in toDoDates {
@@ -121,6 +129,20 @@ class Habit : Codable {
         }
 
         return numberOfCompletedDay
+    }
+    
+    func assignAward(_ award: AwardsType) {
+        if !awardList.contains(award) {
+            awardList.append(award)
+        }
+    }
+    
+    func hasAward(_ award: AwardsType) -> Bool {
+        return awardList.contains(award)
+    }
+    
+    func removeAward(_ award: AwardsType) {
+        awardList.removeAll(where: {awardType in return awardType == award})
     }
     
 }

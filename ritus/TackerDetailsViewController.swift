@@ -8,21 +8,6 @@
 import UIKit
 
 class TackerDetailsViewController: UIViewController, UITextViewDelegate, UICalendarSelectionMultiDateDelegate {
-
-    private func compareDateToCurrent(selectedDay: Date) -> Bool {
-        let currentDay = Date()
-
-        let calendar = Calendar.current
-
-        let components1 = calendar.dateComponents([.year, .month, .day], from: currentDay)
-        let components2 = calendar.dateComponents([.year, .month, .day], from: selectedDay)
-
-        if components1.year == components2.year && components1.month == components2.month && components1.day == components2.day {
-            return true
-        } else {
-            return false
-        }
-    }
     
     @IBOutlet weak var descriptionLabel: UITextView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -73,12 +58,12 @@ class TackerDetailsViewController: UIViewController, UITextViewDelegate, UICalen
     
     func multiDateSelection(_ selection: UICalendarSelectionMultiDate, canSelectDate dateComponents: DateComponents) -> Bool {
         guard let selectedDay = dateComponents.date else { return false}
-        return compareDateToCurrent(selectedDay: selectedDay)
+        return selectedDay.compareDateToCurrent()
     }
     
     func multiDateSelection(_ selection: UICalendarSelectionMultiDate, didSelectDate dateComponents: DateComponents) {
         guard let selectedDay = dateComponents.date else { return}
-        if !compareDateToCurrent(selectedDay: selectedDay) {return}
+        if !selectedDay.compareDateToCurrent() {return}
         
         if habit?.toDoDates[selectedDay] != nil{
             habit?.toDoDates[selectedDay] = !(habit?.toDoDates[selectedDay] ?? true)
@@ -91,7 +76,7 @@ class TackerDetailsViewController: UIViewController, UITextViewDelegate, UICalen
     
     func multiDateSelection(_ selection: UICalendarSelectionMultiDate, didDeselectDate dateComponents: DateComponents) {
         guard let selectedDay = dateComponents.date else { return}
-        if !compareDateToCurrent(selectedDay: selectedDay) {return}
+        if !selectedDay.compareDateToCurrent() {return}
         
         if habit?.toDoDates[selectedDay] != nil{
             habit?.toDoDates[selectedDay] = !(habit?.toDoDates[selectedDay] ?? false)
@@ -113,7 +98,7 @@ extension TackerDetailsViewController: UICalendarViewDelegate {
     
     func calendarView(_ calendarView: UICalendarView, decorationFor dateComponents: DateComponents) -> UICalendarView.Decoration? {
         if let date = dateComponents.date  {
-            let isCurrentDay = compareDateToCurrent(selectedDay: date)
+            let isCurrentDay = date.compareDateToCurrent()
             if let isCompleted = habit?.toDoDates[date] {
                 let image = UIImage(systemName:  !isCompleted ? "circle" : "circle.inset.filled")
                 return .image(image, color: isCurrentDay ? .systemBlue : .systemGray, size: .large)

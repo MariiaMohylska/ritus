@@ -14,7 +14,7 @@ struct Award: Codable{
 }
 
 extension Award {
-    static let awardsKey = "Awards"
+    private static let awardsKey = "Awards"
     
     static func save(awards: [Award]){
         let defaults = UserDefaults.standard

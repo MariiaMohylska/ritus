@@ -22,6 +22,9 @@
 		55CA95E32BDC463B00769A1E /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CA95E22BDC463B00769A1E /* Award.swift */; };
 		55CA95E52BDC464600769A1E /* AwardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CA95E42BDC464600769A1E /* AwardCell.swift */; };
 		55CA95E72BDC46DF00769A1E /* AwardsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CA95E62BDC46DF00769A1E /* AwardsService.swift */; };
+		55F7AE742BDC6E21005EF726 /* AwardsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F7AE732BDC6E21005EF726 /* AwardsType.swift */; };
+		55F7AE762BDC7215005EF726 /* AwardsCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F7AE752BDC7215005EF726 /* AwardsCalculation.swift */; };
+		55F7AE7A2BDC77F1005EF726 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F7AE792BDC77F1005EF726 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		55CA95E22BDC463B00769A1E /* Award.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
 		55CA95E42BDC464600769A1E /* AwardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardCell.swift; sourceTree = "<group>"; };
 		55CA95E62BDC46DF00769A1E /* AwardsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardsService.swift; sourceTree = "<group>"; };
+		55F7AE732BDC6E21005EF726 /* AwardsType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsType.swift; sourceTree = "<group>"; };
+		55F7AE752BDC7215005EF726 /* AwardsCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsCalculation.swift; sourceTree = "<group>"; };
+		55F7AE792BDC77F1005EF726 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +96,9 @@
 				557781B52BCE2FD7009CF9D6 /* Assets.xcassets */,
 				557781B72BCE2FD7009CF9D6 /* LaunchScreen.storyboard */,
 				557781BA2BCE2FD7009CF9D6 /* Info.plist */,
+				55F7AE732BDC6E21005EF726 /* AwardsType.swift */,
+				55F7AE752BDC7215005EF726 /* AwardsCalculation.swift */,
+				55F7AE792BDC77F1005EF726 /* Extensions.swift */,
 			);
 			path = ritus;
 			sourceTree = "<group>";
@@ -166,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				559E207D2BCF5D3300B6878B /* TackerDetailsViewController.swift in Sources */,
+				55F7AE742BDC6E21005EF726 /* AwardsType.swift in Sources */,
 				5584691A2BD0889D00DD0CA2 /* AwardsViewController.swift in Sources */,
 				557781AD2BCE2FD6009CF9D6 /* AppDelegate.swift in Sources */,
 				55CA95E32BDC463B00769A1E /* Award.swift in Sources */,
@@ -174,9 +184,11 @@
 				55AF34132BD0ADD700B523EC /* Frequency.swift in Sources */,
 				559E207B2BCF5A7400B6878B /* TrackersListViewController.swift in Sources */,
 				55CA95E52BDC464600769A1E /* AwardCell.swift in Sources */,
+				55F7AE7A2BDC77F1005EF726 /* Extensions.swift in Sources */,
 				559E207F2BCF622800B6878B /* NewTrackerViewController.swift in Sources */,
 				55C9F0492BD5804300E630FF /* HabitCell.swift in Sources */,
 				557781AF2BCE2FD6009CF9D6 /* SceneDelegate.swift in Sources */,
+				55F7AE762BDC7215005EF726 /* AwardsCalculation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
