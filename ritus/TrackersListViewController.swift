@@ -27,9 +27,7 @@ class TrackersListViewController: UIViewController {
         }
         
         if shouldRunFunctionOnFirstLaunchOfDay() {
-                    UserDefaults.standard.set(Date(), forKey: "LastLaunchDate")
-            
-            print("NEW")
+            UserDefaults.standard.set(Date(), forKey: "LastLaunchDate")
             
             AwardsService.fetchImage(){
                 images in
@@ -47,10 +45,11 @@ class TrackersListViewController: UIViewController {
     private func shouldRunFunctionOnFirstLaunchOfDay() -> Bool {
           let userDefaults = UserDefaults.standard
           
+        
           if let lastLaunchDate = userDefaults.object(forKey: "LastLaunchDate") as? Date {
               return !lastLaunchDate.compareDateToCurrent()
           }
-          
+       
           return true
       }
       
