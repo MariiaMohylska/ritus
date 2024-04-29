@@ -48,8 +48,8 @@ Ritus is an mobile application designed to help  build and track        positive
 - [X] User can see progress in percent
 - [X] User can see list of trackers with name and progress
 - [X] User can open specific tracker in separate screen
-- [ ] User can receive awards for achivements
-- [ ] User can see list of awards with description
+- [X] User can receive awards for achivements
+- [X] User can see list of awards with description
 - [X] User can see habit details with cempleted days, name, description and progres
 - [X] User can delete tracker
 
@@ -130,6 +130,7 @@ Implemented basic function except Awards
 
 ### Networking
 
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+In this app have been used such APIs:
+https://api.unsplash.com/
+https://type.fit/api/quotes
+
