@@ -120,6 +120,9 @@ Navigation between different screen via bottom navigation bar
 Implemented basic function except Awards
 [Basic Features - module 9 homework](https://youtube.com/shorts/kyqrEh0xvn4)
 
+Final demo. For demo purposes some code was a a little bit hardcoded, but returned back after
+[Final DEMO](https://youtube.com/shorts/saCcr29UYjw)
+
 ## Schema 
 
 [This section will be completed in Unit 9]
